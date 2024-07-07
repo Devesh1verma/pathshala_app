@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Container from "react-bootstrap/Container";
 import CountUp from "react-countup";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type StatsCardProps = {
   imgUrl: string;
@@ -10,19 +10,30 @@ type StatsCardProps = {
 };
 
 const StatCard = ({ imgUrl, value, title }: StatsCardProps) => {
-  const [isClient, setIsClient] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const countUpRef = useRef(null);
 
   useEffect(() => {
-    setIsClient(true);
+    const handleScroll = () => {
+      const rect = countUpRef.current?.getBoundingClientRect();
+      if (rect && rect.top < window.innerHeight) {
+        setIsVisible(true);
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <Container className="d-flex align-items-center gap-3" data-aos="zoom-in">
       <Image src={imgUrl} width={48} height={48} alt={title} />
       <div className="d-flex justify-content-start flex-column gap-0">
-        <h2 className="fs-2 fw-bold text-gray-900">
-          {isClient ? (
-            <CountUp start={0} end={value} duration={4} separator="," />
+        <h2 className="fs-2 fw-bold text-gray-900" ref={countUpRef}>
+          {isVisible ? (
+            <CountUp start={0} end={value} duration={3.5} separator="," />
           ) : (
             "0"
           )}

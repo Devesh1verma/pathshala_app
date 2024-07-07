@@ -82,7 +82,7 @@ const FooterComponent = () => {
           <div className="input-group">
             <input
               type="email"
-              className="form-control bg-dark text-light shadow-none border border-0"
+              className="form-control bg-dark text-light shadow-none  border-0"
               id="exampleFormControlInput1"
               data-bs-theme="dark"
               placeholder="Your email address"

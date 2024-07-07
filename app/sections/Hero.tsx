@@ -1,14 +1,13 @@
-import { useState } from 'react';
+import { useState, SyntheticEvent } from 'react';
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Carousel from "react-bootstrap/Carousel";
 import Image from "next/image";
-import Link from "next/link";
 
 const Hero = () => {
   const [index, setIndex] = useState(0);
 
-  const handleSelect = (selectedIndex, e) => {
+  const handleSelect = (selectedIndex: number, e: Record<string, unknown> | null) => {
     setIndex(selectedIndex);
   };
 

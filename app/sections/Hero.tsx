@@ -1,4 +1,4 @@
-import { useState, SyntheticEvent } from 'react';
+import { useState } from 'react';
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Carousel from "react-bootstrap/Carousel";
@@ -7,7 +7,7 @@ import Image from "next/image";
 const Hero = () => {
   const [index, setIndex] = useState(0);
 
-  const handleSelect = (selectedIndex: number, e: Record<string, unknown> | null) => {
+  const handleSelect = (selectedIndex: number, e: any) => {
     setIndex(selectedIndex);
   };
 
@@ -31,8 +31,8 @@ const Hero = () => {
             <Image
               src="/HeroImg.svg"
               alt="Hero"
-              height={0}
-              width={0}
+              height={400} // Adjust height and width as per your design
+              width={600} // Adjust height and width as per your design
               className="h-auto w-auto mb-2 px-2"
               priority={true}
               data-aos="fade-left"
@@ -56,8 +56,8 @@ const Hero = () => {
             <Image
               src="/HeroImg2.svg"
               alt="Hero"
-              height={0}
-              width={0}
+              height={400} // Adjust height and width as per your design
+              width={600} // Adjust height and width as per your design
               className="h-auto w-auto mb-2 px-2"
               priority={true}
               data-aos="fade-left"
@@ -81,8 +81,8 @@ const Hero = () => {
             <Image
               src="/HeroImg3.svg"
               alt="Hero"
-              height={0}
-              width={0}
+              height={400} // Adjust height and width as per your design
+              width={600} // Adjust height and width as per your design
               className="h-auto w-auto mb-2 px-2"
               priority={true}
               data-aos="fade-left"

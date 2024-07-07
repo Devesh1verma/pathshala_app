@@ -28,7 +28,7 @@ const BusinessStats = () => {
   return (
     <Container className="d-flex flex-lg-row flex-column justify-content-lg-between justify-content-start align-items-lg-center px-5 py-5 bg-silver">
       <div className="font-inter" data-aos="fade-right">
-        <h1 className="text-gray-900 fw-semibold">
+        <h1 className="text-gray-900 fw-semibold" style={{ fontSize: '2.2rem' }}>
           Helping a local&nbsp; <br />
           <span className="text-primary">business reinvent itself</span>
         </h1>

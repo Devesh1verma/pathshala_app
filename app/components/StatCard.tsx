@@ -21,7 +21,11 @@ const StatCard = ({ imgUrl, value, title }: StatsCardProps) => {
       <Image src={imgUrl} width={48} height={48} alt={title} />
       <div className="d-flex justify-content-start flex-column gap-0">
         <h2 className="fs-2 fw-bold text-gray-900">
-          {isClient ? <CountUp end={value} duration={2.5} separator="," /> : "0"}
+          {isClient ? (
+            <CountUp start={0} end={value} duration={2.5} separator="," />
+          ) : (
+            "0"
+          )}
         </h2>
         <p className="fs-6 fw-light text-gray-200">{title}</p>
       </div>
